@@ -112,7 +112,7 @@ create table if not exists fact_ventas(
     store_key        int(8)     not null,
     product_key      int(8)     not null,
     proveedor_key    int(8)     not null,
-    territory_key    int(8)    not null,
+    territory_key    int(8)     not null,
     cliente_key      int(8)     not null,
 
     -- datos
