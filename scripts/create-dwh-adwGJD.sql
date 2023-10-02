@@ -19,7 +19,7 @@ create table if not exists dim_time(
 -- Dimension Vendedor
 create table if not exists dim_vendedor(
     salesperson_key       int not null AUTO_INCREMENT,
-    salesperson_id        tinyint(8)  not null, 
+    salesperson_id        int not null, 
     salesperson_name      varchar(50) not null,
     city                  varchar(30) not null,
     country               varchar(30) not null,
