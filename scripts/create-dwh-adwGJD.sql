@@ -36,8 +36,8 @@ create table if not exists dim_vendedor(
 -- Dimension Tienda
 create table if not exists dim_tienda(
     store_key   int not null AUTO_INCREMENT,
-    store_id    tinyint(8) not null, 
-    store       varchar(20) not null, 
+    store_id    int not null, 
+    store       varchar(100) not null, 
     last_update timestamp not null default CURRENT_TIMESTAMP,
 
     primary key (store_key),
@@ -47,11 +47,11 @@ create table if not exists dim_tienda(
 -- Dimension Producto
 create table if not exists dim_producto(
     product_key   int not null AUTO_INCREMENT,
-    product_id    tinyint(8) not null, 
+    product_id    int not null, 
     product       varchar(100) not null,
     localizacion  varchar(100) not null,
     costrate      decimal(10,4) not null,
-    class         char(2) not null, 
+    class         char(2), 
     category      varchar(100) not null,
     subcategory   varchar(100) not null,
     last_update timestamp not null default CURRENT_TIMESTAMP,
@@ -63,7 +63,7 @@ create table if not exists dim_producto(
 -- Dimension Proveedor
 create table if not exists dim_proveedor(
     proveedor_key   int not null AUTO_INCREMENT,
-    proveedor_id    tinyint(8) not null, 
+    proveedor_id    int not null, 
     proveedor       varchar(100) not null,
     credit_rating   tinyint(1) not null,
     ship_method     varchar(100) not null,
