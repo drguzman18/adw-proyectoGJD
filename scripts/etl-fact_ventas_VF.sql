@@ -15,7 +15,16 @@ select
     product_key,
     proveedor_key,
     territory_key,
-    cliente_key
+    cliente_key,
+    SubTotal,
+    TaxAmt,
+    UnitPrice,
+    UnitPriceDiscount,
+    LineTotal,
+    OrderQty,
+    pp.Size,
+    pp.Weight,
+    pwk.ActualCost
 
 from Sales_Customer as customer
  join Sales_Store as store 
@@ -40,8 +49,11 @@ from Sales_Customer as customer
  on st.TerritoryID=dimty.territory_id
  join adw_dwh.dim_cliente as dimcl
  on sales.CustomerID=dimcl.cliente_id
+ join Production_Product as pp
+ on vendor.ProductID=pp.ProductID
+ join Production_WorkOrderRouting as pwk
+ on vendor.ProductID=pwk.ProductID
 
- 
 
 
 limit 5;
