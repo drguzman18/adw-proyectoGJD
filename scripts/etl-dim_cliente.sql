@@ -9,7 +9,7 @@ insert into adw_dwh.dim_cliente (
     email
 )
 select
-    Customer.PersonID as cliente_id,
+    Customer.CustomerID as cliente_id,
     CONCAT(Person.FirstName, ' ',Person.LastName) AS cliente,
     Address.City as city,
     Prov.Name as province,
