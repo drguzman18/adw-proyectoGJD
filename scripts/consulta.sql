@@ -23,7 +23,7 @@ limit 10
 ;
 
 -- Promedio Compras por Genero
-select case when gender as genero, round(avg(SubTotal),0) as Promedio_Ventas
+select gender as genero, round(avg(SubTotal),0) as Promedio_Ventas
 from fact_ventas as fv 
     join dim_vendedor as dimv 
         on dimv.salesperson_key=fv.salesperson_key
