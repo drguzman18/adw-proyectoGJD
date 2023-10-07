@@ -1,14 +1,6 @@
-use adw;
+with datos as(
 
-
-insert into adw_dwh.dim_producto (
-    product_id,
-    product,
-    class,
-    category,
-    subcategory
-)
-select 
+select
     Product.ProductID as product_id,
     Product.Name as product,
     Product.Class as class,
@@ -18,4 +10,7 @@ select
 from Production_Product as Product
     join Production_ProductSubcategory as Subcategory on Product.ProductSubcategoryID = Subcategory.ProductSubcategoryID
     join Production_ProductCategory as Category on Subcategory.ProductCategoryID = Category.ProductCategoryID
-;
+
+)
+
+
