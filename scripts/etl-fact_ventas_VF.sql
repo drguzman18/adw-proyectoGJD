@@ -22,7 +22,7 @@ select
     UnitPriceDiscount,
     LineTotal,
     OrderQty,
-    pp.Size,
+ -- pp.Size,
     pp.Weight,
     pwk.ActualCost
 

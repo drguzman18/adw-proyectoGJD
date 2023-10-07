@@ -58,6 +58,7 @@ create table if not exists dim_producto(
     unique index (product_id)
 );
 
+/*
 -- Dimension Proveedor
 create table if not exists dim_proveedor(
     proveedor_key   int not null AUTO_INCREMENT,
@@ -69,7 +70,7 @@ create table if not exists dim_proveedor(
     primary key (proveedor_key),
     unique index (proveedor_id)
 );
-
+*/
 -- Dimension Territorio
 create table if not exists dim_territorio(
     territory_key   int not null AUTO_INCREMENT,
@@ -108,7 +109,7 @@ create table if not exists fact_ventas(
     salesperson_key  int(8)     not null,
     store_key        int(8)     not null,
     product_key      int(8)     not null,
-    proveedor_key    int(8)     not null,
+    -- proveedor_key    int(8)     not null,
     territory_key    int(8)     not null,
     cliente_key      int(8)     not null,
 
@@ -120,10 +121,6 @@ create table if not exists fact_ventas(
     UnitPriceDiscount decimal(19,4) not null,
     Line_Total        decimal(38,6) not null,
     OrderQty          smallint(8)   not null,
-    Tamano            varchar(5)    not null,
-    Peso              decimal(8,2)  not null,
-    Actual_Cost       decimal(19,4) not null,
-
 
     primary key (ventas_key),
     unique index ventas_id(ventas_id),
@@ -136,8 +133,8 @@ create table if not exists fact_ventas(
     foreign key (store_key) references dim_tienda(store_key),
     index product_key (product_key),
     foreign key(product_key) references dim_producto(product_key),
-    index proveedor_key (proveedor_key),
-    foreign key(proveedor_key) references dim_proveedor(proveedor_key),
+    -- index proveedor_key (proveedor_key),
+    -- foreign key(proveedor_key) references dim_proveedor(proveedor_key),
     index territory_key (territory_key),
     foreign key(territory_key) references dim_territorio(territory_key),
     index cliente_key (cliente_key),
